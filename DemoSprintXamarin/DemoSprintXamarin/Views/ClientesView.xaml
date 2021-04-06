@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DemoSprintXamarin.Views.ClientesView"
+             Title="Clientes">
+
+    <StackLayout>
+        <StackLayout>
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
+                <Label Margin="0, 25, 0, 5" Text="Informações"
+                       FontAttributes="Bold"
+                       FontSize="Large"
+                       TextColor="Gray"
+                       HorizontalTextAlignment="Center">
+                </Label>
+                <Entry x:Name="txtId" Placeholder="Id"></Entry>
+                <Entry x:Name="txtNome" Placeholder="Nome"></Entry>
+                <Entry x:Name="txtCpf" Placeholder="CPF"></Entry>
+                <Entry x:Name="txtEndereco" Placeholder="Endereço"></Entry>
+                <Entry x:Name="txtLimite" Placeholder="Limite"></Entry>
+
+                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    
+                    <Button x:Name="btnInserir"
+                            WidthRequest="120" 
+                            Text="Inserir" 
+                            BackgroundColor="Gray"
+                            Clicked="BtnInserir_Clicked"/>
+                    
+                    <Button x:Name="btnExibir" 
+                            WidthRequest="120"
+                            Text="Exibir" 
+                            BackgroundColor="Gray"
+                            Clicked="BtnExibir_Clicked"/>
+                    
+                </StackLayout>
+
+                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    
+                    <Button x:Name="btnAtualizar"
+                            WidthRequest="120"
+                            Text="Atualizar"
+                            BackgroundColor="Gray"
+                            Clicked="BtnAtualizar_Clicked"/>
+
+                    <Button x:Name="btnDeletar" 
+                            WidthRequest="120"
+                            Text="Deletar"
+                            BackgroundColor="Gray"
+                            Clicked="BtnDeletar_Clicked"/>
+
+                </StackLayout>
+
+                <CollectionView x:Name="listaClientes" BackgroundColor="AntiqueWhite">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout HeightRequest="50" 
+                                         WidthRequest="200"
+                                         Orientation="Horizontal"
+                                         Padding="0,5">
+                                <Label Text="{Binding Nome}" VerticalOptions="Center"/>
+                                <Label Text="{Binding Cpf}" VerticalOptions="Center"/>
+                                <Label Text="{Binding Endereco}" VerticalOptions="Center"/>
+                                <Label Text="{Binding Limite}" VerticalOptions="Center"/>
+
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

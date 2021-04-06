@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:DemoSprintXamarin.ViewModels"
+             x:Class="DemoSprintXamarin.Views.LoginView">
+    
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid Padding="30" VerticalOptions="Center">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout Grid.Row="0" VerticalOptions="Center">
+            <Image Source="xamarin.png" WidthRequest="150" HeightRequest="150"/>
+            <Label Text="Login" FontFamily="Verdana"
+                   TextColor="Blue" FontSize="25"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
+        </StackLayout>
+
+
+        <StackLayout Grid.Row="1" Spacing="20">
+            
+            <Entry Placeholder="Nome do usuário" Text="{Binding Username}"/>
+            <Entry Placeholder="Senha do usuário" Text="{Binding Password}" IsPassword="True"/>
+            
+            <Button Text="Login" HorizontalOptions="Center" BackgroundColor="Blue"
+                    TextColor="White" WidthRequest="200" HeightRequest="40"
+                    Command="{Binding LoginCommand}"/>
+
+            <Label Text="Novo Usuário ?"  FontAttributes="Bold" TextColor="Gray"/>
+
+            <Button Text="Registrar" HorizontalOptions="Center" BackgroundColor="Blue"
+                    TextColor="White" WidthRequest="200" HeightRequest="40"
+                    Command="{Binding RegisterCommand}"/>
+            
+
+        </StackLayout>
+        
+    </Grid>
+    
+</ContentPage>
